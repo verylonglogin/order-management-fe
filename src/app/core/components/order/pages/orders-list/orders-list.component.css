@@ -1,0 +1,95 @@
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #231c79;
+  background-color: #ffcc00 !important;
+}
+
+.orders-table th {
+  background-color: #231c79;
+  font-weight: bold;
+}
+
+.orders-table tr:hover {
+  background-color: #231c79;
+}
+
+.mat-form-field {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 10px 20px 0;
+  display: inline-block;
+}
+
+.mat-header-cell, .mat-cell {
+  white-space: nowrap;
+}
+
+.mat-header-row, .mat-row {
+  height: 40px;
+}
+
+.mat-cell {
+  font-size: 14px;
+}
+
+.mat-paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+  bottom: 0;
+}
+
+.mat-paginator-container {
+  justify-content: center !important;
+  padding: 10px;
+  position: relative;
+}
+
+.mat-paginator-page-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mat-paginator-page-size-select {
+  position: relative;
+}
+
+.mat-paginator-page-size-select .mat-select-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+.mat-option:last-child:before {
+  content: "All";
+  float: left;
+  text-transform: none;
+  top: 4px;
+  position: relative;
+}
+
+.mat-option:last-child .mat-option-text {
+  display: none;
+  position: relative;
+}
+
+

@@ -1,0 +1,55 @@
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+
+}
+
+button:hover {
+    background-color: #4f46e5 !important;
+}
+
+button:disabled {
+    background-color: #d3d9e1 !important;
+    color: #a0aec0 !important;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
+
+input {
+    background-color: #d3d9e1;
+    /* bg-neutral-100 */
+    width: 100%;
+    /* w-full */
+    padding: 0.1rem 1rem;
+    margin-top: 0.1rem;
+    /* mt-2 */
+    border: 1px solid #ccc;
+    /* Optional: Add a subtle border */
+    border-radius: 4px;
+    /* Optional: Slightly rounded edges */
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}

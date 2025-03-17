@@ -1,0 +1,64 @@
+<div class="orders-container">
+  <h2>Order List</h2>
+  <mat-form-field>
+    <mat-label>Search by country</mat-label>
+    <input matInput (keyup)="applyCountryFilter($event)">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Search by payment description</mat-label>
+    <input matInput (keyup)="applyPaymentDescriptionFilter($event)">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource"  matSort class="orders-table">
+    <ng-container matColumnDef="orderNumber">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Order Number</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.orderNumber }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentDescription">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Payment Description</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.paymentDescription }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="streetAddress">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Street Address</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.streetAddress }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="town">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Town</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.town }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="country" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell">Country</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.country }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Amount</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.amount }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="currency">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Currency</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.currency }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentDueDate">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell">Payment Due Date</mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.paymentDueDate }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+  <mat-paginator
+    [length]="totalItems"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20, 50]"
+    showFirstLastButtons
+    (page)="loadOrders()">
+  </mat-paginator>
+</div>

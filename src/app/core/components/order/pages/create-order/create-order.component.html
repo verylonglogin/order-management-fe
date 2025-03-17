@@ -1,0 +1,67 @@
+<div class="max-w-7xl mx-auto px-4">
+  <h1 class="text-3xl mt-8 mb-4 font-extrabold"> Create Order</h1>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <form [formGroup]="createOrderForm" (ngSubmit)="onFormSubmit()">
+    <div class="mt-4">
+      <label for="orderNumber" class="w-full">Order Number:
+        <input formControlName="orderNumber" type="number">
+        @if (orderNumber.invalid && (orderNumber.dirty || orderNumber.touched)) {
+        @if (orderNumber.hasError('min')) {
+        <p>order number must be positive</p>
+        }
+        @if (orderNumber.hasError('required')) {
+        <p>order number is required</p>
+        }
+        }
+      </label>
+
+    </div>
+    <div class="mt-4">
+      <label>Payment Description:
+        <input formControlName="paymentDescription" type="text">
+        @if (paymentDescription.invalid && (paymentDescription.dirty || paymentDescription.touched))  {
+        @if (paymentDescription.hasError('required')) {
+        <p class="error-message">payment description is required</p>
+        }
+        }
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Street Address:
+        <input formControlName="streetAddress" type="text">
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Town:
+        <input formControlName="town" type="text">
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Country:
+        <input formControlName="country" type="text">
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Amount:
+        <input formControlName="amount" type="number" step="0.01">
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Currency:
+        <input formControlName="currency" type="text">
+      </label>
+    </div>
+    <div class="mt-4">
+      <label>Payment Due Date:
+        <input formControlName="paymentDueDate" type="date">
+      </label>
+    </div>
+    <div class="mt-4">
+      <button
+              [disabled]="createOrderForm.invalid === true">
+        Place Order
+      </button>
+    </div>
+  </form>
+</div>

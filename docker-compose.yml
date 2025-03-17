@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  order-management-fe:
+    container_name: order-management-fe
+    image: order-management-fe:latest  # Use a named image to avoid unnecessary builds
+    build: .
+    ports:
+      - "4200:80"
+    environment:
+      API_URL: 'http://order-management-be:3000'
+    networks:
+      - order-management-be_order-management-network
+    volumes:
+      - ./dist/order-management-fe/browser:/usr/share/nginx/html
+
+networks:
+  order-management-be_order-management-network:
+    external: true
